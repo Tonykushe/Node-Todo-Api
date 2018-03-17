@@ -37,13 +37,13 @@ describe('POST/todos', () => {
 
 });
 
-describe5('GET/todos', () => {
-    it('should get all todos', (done) => {
-        request(app)
-            .get('/todos')
-            .expect(200)
+// describe('GET/todos', () => {
+//     it('should get all todos', (done) => {
+//         request(app)
+//             .get('/todos')
+//             .expect(200)
             
 
-    });
+//     });
 
-});
+// });
