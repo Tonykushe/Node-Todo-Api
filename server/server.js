@@ -1,6 +1,5 @@
 require('./config/config');
 
-
 const _ = require('lodash');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -16,6 +15,8 @@ var app = express();
 const port = process.env.PORT;
 
 app.use(bodyParser.json());
+
+// /////////////////////////////////// //////////////TODO ROUTES ///////////////////////////////////////////////////////////
 
 
 app.post('/todos', (req, res) => {
@@ -103,6 +104,40 @@ app.patch('/todos/:id', (req, res) => {
     }).catch((e) => res.status(400).send());
 
 });
+
+//////////////////////////////////////////////////////// USER ROUTES /////////////////////////////////////////////////////////////
+
+app.post('/users', (req, res) => {
+    var body = _.pick(req.body, ["email", "password"]);
+    var user = new User(body);
+
+    user.save().then((doc) => {
+        res.send(doc)
+    }).catch((e) => res.status(400).send(e));
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
